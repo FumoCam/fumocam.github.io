@@ -43,7 +43,8 @@ body {
 }
 
 .bottom span {
-  color: #ed4d82;
+  color: white;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 @media (min-width: 768px) {
@@ -55,4 +56,8 @@ body {
   .container {
     max-width: 540px;
   }
+}
+h4 {
+	color:white;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
