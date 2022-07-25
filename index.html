@@ -50,18 +50,20 @@
 		<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
 		<script type="text/javascript">
 		    let width = 854;
+			let height = 310;
 			let layout = "video-with-chat";
 			
 			let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 			if (isMobile) {
 				console.log("Mobile Detected");
 				width = 400;
+				height = 225;
 				layout = "video";
 			}
 			
 			new Twitch.Embed("twitch-embed", {
 				width: width,
-				height: 310,
+				height: height,
 				channel: "becomefumocam2",
 				layout: layout
 			});
