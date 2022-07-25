@@ -41,19 +41,30 @@
 				<br>
 				<a href="https://fumocam.xyz/day-0-fumocam-beginnings" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FumoCam Lore (Blog Post)</a>
 			</div>
+			<!-- Bottom section 3 -->
+			<div class="bottom margin-top-2 w3-padding w3-round" style="text-align: center">
+				<span style="vertical-align: 7px;">Background by <a href="https://twitter.com/MofuNattou">@MofuNattou</span>
+			</div>
 		</div> 
-		<!-- Bottom section 3 -->
-		<div class="bottom margin-top-2 w3-padding w3-round">
-			<span style="vertical-align: 7px;">Background by <a href="https://twitter.com/MofuNattou">@MofuNattou</span>
-		</div>
 		
 		<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
 		<script type="text/javascript">
-		  new Twitch.Embed("twitch-embed", {
-			width: 854,
-			height: 310,
-			channel: "becomefumocam2",
-		  });
+		    let width = 854;
+			let layout = "video-with-chat";
+			
+			let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+			if (isMobile) {
+				console.log("Mobile Detected");
+				width = 400;
+				layout = "video";
+			}
+			
+			new Twitch.Embed("twitch-embed", {
+				width: width,
+				height: 310,
+				channel: "becomefumocam2",
+				layout: layout
+			});
 		</script>
 		<!--Show users in Discord-->
 		<script defer>

@@ -34,10 +34,10 @@ body {
 }
 
 .bottom {
-  position: absolute;
-  bottom: 1%;
-  text-align: right;
-  right: 1%;
+  /* position: absolute; */
+  /* bottom: 1%; */
+  /* text-align: right; */
+  /* right: 1%; */
   width: auto;
   font-weight: bolder;
 }
