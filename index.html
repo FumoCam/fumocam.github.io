@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Hey look someones inspecting the source code-->
-<!--Spoiler alert I copy pasted from the first google result and edited this in like 5 minutes-->
+<!--Spoiler alert I copy pasted from the first google result for "link tree" and edited this in like 5 minutes-->
 <!--I didn't even look at the css or licensing but I'm not making money off this so its probably fine-->
 <html lang="en">
 	<head>
@@ -10,46 +10,64 @@
 		<link rel="stylesheet" href="resources/w3-theme-red.css">    
 		<title>FumoCam Links</title>
 		<link rel="stylesheet" href="resources/main.css">
+		<!-- Load the Twitch embed JavaScript file -->
+		<script src="https://embed.twitch.tv/embed/v1.js"></script>
 	</head>
 	<body>
 		<div class="container">
-		  <div style="text-align: center">
-			<p><span class="name w3-padding w3-red w3-round" style="font-weight: bolder;">Last Update: 2022-07-22</span></p>
-		  </div>
-		  <h4 class="margin-top-2" style="text-align: center;"><b>"BECOME FUMO" CAM</b></h4>
-		  <div class="links-container">
-			<a href="https://www.twitch.tv/becomefumocam" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Live Stream (Twitch)</a>
-			<br>
-			<a href="https://fumocam.xyz/commands" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Chat Commands</a>
-			<br>
-			<a href="https://www.youtube.com/channel/UCHgPACStda6XO5J38oavPYA" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">"Become Fumo" Videos</a>
-			<br>
-			<a href="https://www.youtube.com/channel/UCPIFbQgBaY80mQzKPM98egA" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FumoCam Archived Streams</a>
-		  </div>
-		  
-		  <h4 class="margin-top-2" style="text-align: center;"><b>OTHER/MISC</b></h4>
-		  <div class="links-container">
-			<a href="https://discord.gg/UKsjbEMzcy" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Discord <span id="discord-users-online"></span></a>
-			<script defer>
-				const getDiscordData = async () => {
-				  const response = await fetch('https://discord.com/api/guilds/949908659348049940/widget.json');
-				  const data = await response.json();
-				  if (data.presence_count) {
-					document.getElementById('discord-users-online').innerHTML = `(${data.presence_count} users online)`; 
-				  }
-				}
-				getDiscordData()
-			</script>
-			<br>
-			<a href="https://twitter.com/FumoCam" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Twitter</a>
-			<br>
-			<a href="https://fumocam.xyz/day-0-fumocam-beginnings" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FumoCam Lore (Blog Post)</a>
-		  </div>
+			<div style="text-align: center">
+				<p><span class="name w3-padding w3-red w3-round" style="font-weight: bolder;">Last Update: 2022-07-25</span></p>
+			</div>
+			
+			<div class="links-container">
+				<!-- Add a placeholder for the Twitch embed -->
+				<div id="twitch-embed"></div>
+				<h4 class="margin-top-2" style="text-align: center;"><b>"BECOME FUMO" CAM</b></h4>
+				<a href="https://www.twitch.tv/becomefumocam" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Live Stream - Twitch<br /><i>(BecomeFumoCam2)</i></a>
+				<br>
+				<a href="https://fumocam.xyz/commands" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Chat Commands</a>
+				<br>
+				<a href="https://www.youtube.com/channel/UCHgPACStda6XO5J38oavPYA" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">"Become Fumo" Videos</a>
+				<br>
+				<a href="https://www.youtube.com/channel/UCPIFbQgBaY80mQzKPM98egA" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FumoCam Archived Streams</a>
+			</div>
+
+			
+			<div class="links-container">
+				<h4 class="margin-top-2" style="text-align: center;"><b>OTHER/MISC</b></h4>
+				<a href="https://discord.gg/UKsjbEMzcy" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Discord <span id="discord-users-online"></span></a>
+				<br>
+				<a href="https://twitter.com/FumoCam" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">Twitter</a>
+				<br>
+				<a href="https://fumocam.xyz/day-0-fumocam-beginnings" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank">FumoCam Lore (Blog Post)</a>
+			</div>
 		</div> 
-		  <!-- Bottom section 3 -->
-		  <div class="bottom margin-top-2 w3-padding w3-round">
+		<!-- Bottom section 3 -->
+		<div class="bottom margin-top-2 w3-padding w3-round">
 			<span style="vertical-align: 7px;">Background by <a href="https://twitter.com/MofuNattou">@MofuNattou</span>
-		  </div>
+		</div>
+		
+		<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+		<script type="text/javascript">
+		  new Twitch.Embed("twitch-embed", {
+			width: 854,
+			height: 480,
+			channel: "becomefumocam02",
+		  });
+		</script>
+		<!--Show users in Discord-->
+		<script defer>
+			const getDiscordData = async () => {
+				const response = await fetch('https://discord.com/api/guilds/949908659348049940/widget.json');
+				const data = await response.json();
+				if (data.presence_count) {
+					document.getElementById('discord-users-online').innerHTML = `(${data.presence_count} users online)`; 
+				}
+			}
+			getDiscordData()
+		</script>
 	</body>
+
+
 	
 </html>
